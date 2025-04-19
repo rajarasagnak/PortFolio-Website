@@ -1,5 +1,3 @@
-import UiPathLogo from "../assets/uipath-logo";
-
 export default function Skills() {
   const skillCategories = [
     {
@@ -46,14 +44,7 @@ export default function Skills() {
           </h3>
           
           <div className="flex flex-wrap justify-center items-center gap-8">
-            {/* UiPath Logo */}
-            <div className="flex flex-col items-center">
-              <div className="w-16 h-16 mb-2">
-                <UiPathLogo />
-              </div>
-              <span className="text-sm font-medium">UiPath</span>
-            </div>
-            
+
             {/* Add other tool logos as needed */}
             <div className="flex flex-col items-center">
               <div className="w-16 h-16 flex items-center justify-center text-blue-600 mb-2">
