@@ -1,8 +1,15 @@
 import { useState } from "react";
 import HackTrackModal from "./HackTrackModal";
+import ProjectDemoModal from "./ProjectDemoModal";
 
 export default function Projects() {
   const [isHackTrackModalOpen, setIsHackTrackModalOpen] = useState(false);
+  const [isProjectDemoModalOpen, setIsProjectDemoModalOpen] = useState(false);
+  const [currentProject, setCurrentProject] = useState({
+    title: "",
+    description: "",
+    type: ""
+  });
 
   const openHackTrackModal = () => {
     setIsHackTrackModalOpen(true);
@@ -14,6 +21,21 @@ export default function Projects() {
     document.body.style.overflow = 'auto';
   };
 
+  const openProjectDemoModal = (project: any) => {
+    setCurrentProject({
+      title: project.title,
+      description: project.description,
+      type: project.type
+    });
+    setIsProjectDemoModalOpen(true);
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeProjectDemoModal = () => {
+    setIsProjectDemoModalOpen(false);
+    document.body.style.overflow = 'auto';
+  };
+
   const projects = [
     {
       title: "Portfolio Website",
@@ -21,7 +43,6 @@ export default function Projects() {
       technologies: ["HTML", "CSS", "JavaScript"],
       gradient: "from-primary to-secondary",
       icon: "fas fa-user-circle",
-      demoUrl: "",
       isPersonal: true
     },
     {
@@ -38,7 +59,7 @@ export default function Projects() {
       technologies: ["HTML", "CSS", "JavaScript"],
       gradient: "from-red-600 to-red-800",
       icon: "fas fa-film",
-      demoUrl: "https://rajarasagnak.github.io/NetFlixClone/"
+      type: "netflix"
     },
     {
       title: "Simple Calculator",
@@ -46,7 +67,7 @@ export default function Projects() {
       technologies: ["HTML", "CSS", "JavaScript"],
       gradient: "from-green-500 to-teal-500",
       icon: "fas fa-calculator",
-      demoUrl: "https://rajarasagnak.github.io/SimpleCalculator/"
+      type: "calculator"
     },
     {
       title: "Project Approval System",
@@ -54,7 +75,7 @@ export default function Projects() {
       technologies: ["HTML", "CSS", "JavaScript", "Python Flask"],
       gradient: "from-yellow-500 to-orange-500",
       icon: "fas fa-tasks",
-      demoUrl: "https://rajarasagnak.github.io/ProjectApproalSystem/"
+      type: "approval"
     }
   ];
 
@@ -94,15 +115,13 @@ export default function Projects() {
                         <i className="fas fa-external-link-alt mr-1"></i> View Demo
                       </button>
                     )}
-                    {project.demoUrl && (
-                      <a 
-                        href={project.demoUrl} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
+                    {project.type && (
+                      <button 
+                        onClick={() => openProjectDemoModal(project)}
                         className="text-primary hover:text-primary-dark transition-colors font-medium"
                       >
                         <i className="fas fa-external-link-alt mr-1"></i> View Demo
-                      </a>
+                      </button>
                     )}
                   </div>
                 </div>
@@ -113,6 +132,13 @@ export default function Projects() {
       </section>
 
       <HackTrackModal isOpen={isHackTrackModalOpen} onClose={closeHackTrackModal} />
+      <ProjectDemoModal 
+        isOpen={isProjectDemoModalOpen} 
+        onClose={closeProjectDemoModal}
+        title={currentProject.title}
+        description={currentProject.description}
+        type={currentProject.type}
+      />
     </>
   );
 }
