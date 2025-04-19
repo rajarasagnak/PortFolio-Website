@@ -16,24 +16,7 @@ export default function Header() {
     setMobileMenuOpen(false);
   };
 
-  // Function to download resume
-  const downloadResume = () => {
-    // Create a temporary anchor element
-    const link = document.createElement('a');
-    // Set the href to the resume PDF location
-    link.href = `/resume-rasagna-kattukolu.pdf`; // This would be the actual path to the resume
-    // Give the file a name
-    link.download = 'Rasagna_Kattukolu_Resume.pdf';
-    // Append to the body
-    document.body.appendChild(link);
-    // Trigger the download
-    link.click();
-    // Remove the element
-    document.body.removeChild(link);
 
-    // Alternative functionality (alert)
-    alert('Resume download functionality would be implemented here.');
-  };
 
   // Handle scroll to detect active section and header background
   useEffect(() => {
@@ -90,12 +73,6 @@ export default function Header() {
           <a href="#projects" className={`nav-link ${scrolled ? 'text-neutral-dark' : 'text-white'} ${activeSection === 'projects' ? 'active' : ''}`}>Projects</a>
           <a href="#certificates" className={`nav-link ${scrolled ? 'text-neutral-dark' : 'text-white'} ${activeSection === 'certificates' ? 'active' : ''}`}>Certificates</a>
           <a href="#contact" className={`nav-link ${scrolled ? 'text-neutral-dark' : 'text-white'} ${activeSection === 'contact' ? 'active' : ''}`}>Contact</a>
-          <button 
-            onClick={downloadResume} 
-            className="bg-primary hover:bg-primary-dark text-white px-4 py-2 rounded-md transition duration-300 flex items-center"
-          >
-            <i className="fas fa-download mr-2"></i> Resume
-          </button>
         </nav>
       </div>
       
