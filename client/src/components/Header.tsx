@@ -85,15 +85,6 @@ export default function Header() {
           <a href="#projects" onClick={closeMobileMenu} className="block py-2 text-neutral-dark hover:text-primary transition-colors">Projects</a>
           <a href="#certificates" onClick={closeMobileMenu} className="block py-2 text-neutral-dark hover:text-primary transition-colors">Certificates</a>
           <a href="#contact" onClick={closeMobileMenu} className="block py-2 text-neutral-dark hover:text-primary transition-colors">Contact</a>
-          <button 
-            onClick={() => {
-              downloadResume();
-              closeMobileMenu();
-            }} 
-            className="bg-primary hover:bg-primary-dark text-white px-4 py-2 rounded-md transition duration-300 flex items-center"
-          >
-            <i className="fas fa-download mr-2"></i> Download Resume
-          </button>
         </div>
       </nav>
     </header>
