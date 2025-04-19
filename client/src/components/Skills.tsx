@@ -13,7 +13,7 @@ export default function Skills() {
     {
       title: "Developer Tools",
       icon: "fas fa-tools",
-      skills: ["VS Code", "IDLE", "Google AI Studio"]
+      skills: ["VS Code", "IDLE", "Google AI Studio", "UiPath Studio"]
     },
     {
       title: "Technical Skills",
