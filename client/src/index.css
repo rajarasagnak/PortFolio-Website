@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --primary: 222.2 47.4% 11.2%;
+    --primary-light: 222.2 47.4% 55%;
+    --primary-dark: 222.2 47.4% 25%;
+
+    --secondary: 199 94% 48%;
+    --secondary-light: 199 94% 60%;
+    --secondary-dark: 199 94% 35%;
+
+    --neutral-light: 210 20% 98%;
+    --neutral: 220 14% 96%;
+    --neutral-dark: 220 17% 17%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-poppins antialiased bg-neutral-light text-neutral-dark;
+  }
+}
+
+@layer components {
+  .skill-tag {
+    @apply bg-blue-100 text-primary-dark px-3 py-1 rounded-full transition-all duration-300;
+  }
+
+  .skill-tag:hover {
+    @apply transform -translate-y-1;
+  }
+
+  .project-card {
+    @apply bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300;
+  }
+
+  .project-card:hover {
+    @apply transform -translate-y-2 shadow-xl;
+  }
+
+  .certificate-card {
+    @apply bg-blue-50 rounded-lg overflow-hidden shadow-md transition-all duration-300;
+  }
+
+  .certificate-card:hover {
+    @apply transform scale-[1.02];
+  }
+
+  .section-animate {
+    @apply opacity-0 translate-y-5 transition-all duration-700 ease-out;
+  }
+
+  .section-animate.visible {
+    @apply opacity-100 translate-y-0;
+  }
+
+  .nav-link {
+    @apply text-neutral-dark hover:text-primary transition-colors relative;
+  }
+
+  .nav-link::after {
+    content: '';
+    @apply absolute left-0 bottom-[-6px] w-0 h-[2px] bg-primary transition-all duration-300;
+  }
+
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+
+  .nav-link.active::after {
+    @apply w-full;
+  }
+}
+
+@layer utilities {
+  .font-poppins {
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .font-roboto {
+    font-family: 'Roboto', sans-serif;
+  }
+}
