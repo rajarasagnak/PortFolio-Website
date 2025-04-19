@@ -9,6 +9,13 @@ interface ProjectDemoModalProps {
 export default function ProjectDemoModal({ isOpen, onClose, title, description, type }: ProjectDemoModalProps) {
   if (!isOpen) return null;
 
+  // Define project demo URLs
+  const projectUrls = {
+    netflix: "https://rajarasagnak.github.io/NetFlixClone/",
+    calculator: "https://rajarasagnak.github.io/SimpleCalculator/",
+    approval: "https://rajarasagnak.github.io/ProjectApproalSystem/"
+  };
+
   const renderDemoContent = () => {
     switch (type) {
       case 'netflix':
@@ -24,7 +31,16 @@ export default function ProjectDemoModal({ isOpen, onClose, title, description, 
               <li>Category sections (Trending Now, Popular, etc.)</li>
               <li>Simple navigation system</li>
             </ul>
-            <p className="mt-4 italic text-gray-600">Demo available in the GitHub repository</p>
+            <div className="mt-6 flex justify-center">
+              <a 
+                href={projectUrls.netflix} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-md transition duration-300 inline-flex items-center"
+              >
+                <i className="fas fa-external-link-alt mr-2"></i> Visit Live Demo
+              </a>
+            </div>
           </div>
         );
       case 'calculator':
@@ -40,7 +56,16 @@ export default function ProjectDemoModal({ isOpen, onClose, title, description, 
               <li>Clear and delete functionality</li>
               <li>Memory functions</li>
             </ul>
-            <p className="mt-4 italic text-gray-600">Demo available in the GitHub repository</p>
+            <div className="mt-6 flex justify-center">
+              <a 
+                href={projectUrls.calculator} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-md transition duration-300 inline-flex items-center"
+              >
+                <i className="fas fa-external-link-alt mr-2"></i> Visit Live Demo
+              </a>
+            </div>
           </div>
         );
       case 'approval':
@@ -56,7 +81,16 @@ export default function ProjectDemoModal({ isOpen, onClose, title, description, 
               <li>Notification system for updates</li>
               <li>User role management</li>
             </ul>
-            <p className="mt-4 italic text-gray-600">Demo available in the GitHub repository</p>
+            <div className="mt-6 flex justify-center">
+              <a 
+                href={projectUrls.approval} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="bg-yellow-500 hover:bg-yellow-600 text-white px-6 py-2 rounded-md transition duration-300 inline-flex items-center"
+              >
+                <i className="fas fa-external-link-alt mr-2"></i> Visit Live Demo
+              </a>
+            </div>
           </div>
         );
       default:
@@ -84,7 +118,7 @@ export default function ProjectDemoModal({ isOpen, onClose, title, description, 
             {renderDemoContent()}
           </div>
           <div className="mt-6 flex justify-end">
-            <button onClick={onClose} className="bg-primary hover:bg-primary-dark text-white px-4 py-2 rounded-md transition duration-300">
+            <button onClick={onClose} className="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded-md transition duration-300">
               Close
             </button>
           </div>
